@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malvinas Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button class="Btn" id="back-to-top">
+        <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
+            <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path>
+        </svg>
+        <p class="text">Volver arriba</p>
+    </button>
+        <!-- Barra de carga -->
+        <div id="loading-bar"></div>
+    <!-- Barra de navegación -->
+    <nav>
+        <a href="/" class="logo-container">
+            <img src="https://cdn.discordapp.com/attachments/852670890499244042/1340581139995168819/1739689730682-removebg-preview.png?ex=67b2e0fa&is=67b18f7a&hm=67b34cf6ed527aad7e33bb12117cb35a4045f2329dc290260ba7e2c7f560d7a6&" alt="Logo" class="logo">
+        </a>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#">Servicios</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Negocios</a></li>
+                    <li><a href="#">Facciones</a></li>
+                    <li><a href="#">Autos</a></li>
+                    <li><a href="#">Membresías</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Discord</a></li>
+            <li class="dropdown">
+                <a href="#">Información</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Preguntas Frecuentes (FAQ)</a></li>
+                    <li><a href="#">Normas Generales</a></li>
+                    <li><a href="#">Normas de Faccion</a></li>
+                    <li><a href="#">Normas delictivas</a></li>
+                    <li><a href="#">Ser Staff</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main>
+        <h1 class="animate-up">¡Bienvenido a</h1><h1 class="multicolor-text">Malvinas!</h1>
+        <p class="animate-up">Diseñado para fomentar el rol serio en Latam</p>
+        <!-- Botón "Jugar" -->
+        <a href="#form-section" class="jugar-btn animate-up" style="animation-delay: 0.7s;">
+            <span class="jugar-btn-content">
+                <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" class="jugar-btn-icon">
+                    <path
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                    ></path>
+                </svg>
+                Whitelist
+                <svg
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    fill="none"
+                    class="jugar-btn-arrow"
+                >
+                    <path
+                        d="M5 12h14m-7-7l7 7-7 7"
+                        stroke-width="2.5"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                    ></path>
+                </svg>
+            </span>
+            <div class="jugar-btn-overlay"></div>
+            <div class="jugar-btn-shine"></div>
+        </a>        
+    </main>
+    <!-- Galería de imágenes de fondo -->
+    <div class="background-gallery">
+        <img src="images/cayoperico.png" alt="Fondo 1" class="active">
+        <img src="images/cayoperico.png" alt="Fondo 2">
+        <img src="images/comisaria.png" alt="Fondo 3">
+    </div>
+    <!-- Sección del formulario -->
+    <section class="form-section">
+        <h2 class="form-title">¿Querés entrar?</h2>
+        <p class="form-description">Para entrar deberás completar este sencillo formulario.</p>
+        <form class="form-container">
+            <!-- Nombre de Discord -->
+            <div class="form-group">
+                <label for="discord-name">Nombre de Discord:</label>
+                <input
+                    type="text"
+                    id="discord-name"
+                    name="discord-name"
+                    placeholder="Ej: Discord#1942"
+                    required
+                />
+            </div>
+            <!-- ID de Discord -->
+            <div class="form-group">
+                <label for="discord-id">ID de Discord:</label>
+                <input
+                    type="text"
+                    id="discord-id"
+                    name="discord-id"
+                    placeholder="Ej: 852667708663267399"
+                    required
+                />
+            </div>
+            <!-- Fecha de Nacimiento -->
+            <div class="form-group">
+                <label for="birthdate">Fecha de Nacimiento:</label>
+                <input
+                    type="date"
+                    id="birthdate"
+                    name="birthdate"
+                    required
+                />
+            </div>
+            <!-- Perfil de Steam -->
+            <div class="form-group">
+                <label for="steam-profile">Perfil de Steam:</label>
+                <input
+                    type="url"
+                    id="steam-profile"
+                    name="steam-profile"
+                    placeholder="Ej: steamcommunity.com/id/usuario/"
+                    required
+                />
+            </div>
+            <!-- Botón de enviar -->
+            <button type="submit" class="submit-btn">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <!-- Sección de Soporte -->
+            <div class="footer-section">
+                <h3>¿Necesitas ayuda?</h3>
+                <ul>
+                    <li><a href="#">Donaciones</a></li>
+                    <li><a href="#">Ayuda</a></li>
+                    <li><a href="#">Reporte a usuario</a></li>
+                    <li><a href="#">Reporte a staff</a></li>
+                </ul>
+            </div>
+    
+            <!-- Sección de Donaciones -->
+            <div class="footer-section">
+                <h3>Aportar al servidor</h3>
+                <ul>
+                    <li><a href="#">Negocios</a></li>
+                    <li><a href="#">Facciones</a></li>
+                    <li><a href="#">Autos</a></li>
+                    <li><a href="#">Membresías</a></li>
+                </ul>
+            </div>
+    
+            <!-- Sección de Aviso Legal -->
+            <div class="footer-section">
+                <h3>Aviso Legal</h3>
+                <ul>
+                    <li><a href="#">Política de Cookies</a></li>
+                    <li><a href="#">Condiciones de uso</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Responsabilidad</a></li>
+                    <li><a href="#">Legal</a></li>
+                </ul>
+            </div>
+    
+            <!-- Tarjeta de Donaciones -->
+            <div class="footer-section">
+                <div class="card">
+                    <div class="bg"></div>
+                    <div class="blob"></div>
+                    <div class="card-content">
+                        <p>¡Ayuda a mantener el servidor!</p>
+                        <a href="#" class="donate-btn">
+                            <span class="donate-btn-content">
+                                Donar
+                                <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" class="donate-btn-arrow">
+                                    <path
+                                        d="M5 12h14m-7-7l7 7-7 7"
+                                        stroke-width="2.5"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <div class="donate-btn-overlay"></div>
+                            <div class="donate-btn-shine"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Derechos de autor y redes sociales -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Malvinas Project. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

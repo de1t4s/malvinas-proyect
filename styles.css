@@ -1,0 +1,1037 @@
+/* Estilos generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    user-select: none; /* Evita que el texto sea seleccionable */
+    overflow-x: hidden; /* Evita el desplazamiento lateral */
+    overflow-y: auto; /* Permite desplazamiento vertical */
+}
+
+/* Galería de imágenes de fondo */
+.background-gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Detrás del contenido */
+}
+
+.background-gallery img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.background-gallery img.active {
+    opacity: 1;
+}
+
+/* Controles de la galería */
+.gallery-controls {
+    position: relative;
+    margin-top: -20px; /* Subir los controles para evitar superposición */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.gallery-controls .dots {
+    display: flex;
+    gap: 10px;
+}
+
+.gallery-controls .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffffc5;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gallery-controls .dot.active {
+    background-color: #92929291;
+}
+
+.gallery-controls button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.gallery-controls button:hover {
+    color: #7070709f;
+}
+
+/* Barra de navegación */
+nav {
+    background-color: #181c29;
+    padding: 10px 0;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Distribuir logo y menú */
+    align-items: center;
+    transition: background-color 0.3s ease;
+    padding-left: 20px; /* Espacio adicional a la izquierda */
+    padding-right: 20px; /* Espacio adicional a la derecha */
+}
+
+body.dark-mode nav {
+    background-color: #181c29; /* Modo oscuro para la barra de navegación */
+}
+
+/* Estilo del logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px; /* Ajustar tamaño del logo según sea necesario */
+    width: auto;
+    animation: pulse 2s infinite; /* Aplicar la animación de pulso */
+    transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Aumenta el tamaño al 110% */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Efecto hover con sombra */
+.logo:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra alrededor del logo */
+}
+
+/* Menú de navegación */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+    display: block;
+}
+
+nav ul li a:hover {
+    color: #FFD100;
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #181c29;
+    border-radius: 5px;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease forwards;
+    z-index: 1001;
+    min-width: 150px; /* Ancho mínimo */
+    width: auto; /* Permite que el menú crezca según el contenido */
+}
+
+
+body.dark-mode .dropdown-menu {
+    background-color: #181c29; /* Color en modo oscuro */
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) */
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #4a6780; /* Color más oscuro al pasar el mouse */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Animación del menú desplegable */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Contenido principal */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+p {
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.5s forwards;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow-x: hidden; /* Evita el desplazamiento lateral */
+    overflow-y: auto; /* Permite desplazamiento vertical */
+}
+
+/* Estilos generales del footer */
+footer {
+    background-color: #181c29;
+    color: white;
+    padding: 40px 20px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #6CACE4;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #6CACE4;
+}
+
+/* Estilos de la tarjeta */
+.card {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    border-radius: 14px;
+    z-index: 1111;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Fondo negro para la animación */
+}
+
+/* Fondo animado */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    backdrop-filter: blur(1em) brightness(6);
+    background-image: radial-gradient(
+        circle at 50% 50%,
+        #0000 0,
+        #0000 2px,
+        hsl(0 0 4%) 2px
+    );
+    background-size: 8px 8px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    --c: rgb(9, 255, 0); /* Color de la animación */
+    background-color: #000;
+    background-image: radial-gradient(4px 100px at 0px 235px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 235px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 117.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 252px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 252px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 126px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 150px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 150px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 75px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 253px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 253px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 126.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 204px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 204px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 102px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 134px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 134px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 67px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 179px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 179px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 89.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 299px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 299px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 149.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 215px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 215px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 107.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 281px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 281px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 140.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 158px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 158px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 79px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 210px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 210px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 105px, var(--c) 100%, #0000 150%);
+  background-size:
+    300px 235px,
+    300px 235px,
+    300px 235px,
+    300px 252px,
+    300px 252px,
+    300px 252px,
+    300px 150px,
+    300px 150px,
+    300px 150px,
+    300px 253px,
+    300px 253px,
+    300px 253px,
+    300px 204px,
+    300px 204px,
+    300px 204px,
+    300px 134px,
+    300px 134px,
+    300px 134px,
+    300px 179px,
+    300px 179px,
+    300px 179px,
+    300px 299px,
+    300px 299px,
+    300px 299px,
+    300px 215px,
+    300px 215px,
+    300px 215px,
+    300px 281px,
+    300px 281px,
+    300px 281px,
+    300px 158px,
+    300px 158px,
+    300px 158px,
+    300px 210px,
+    300px 210px,
+    300px 210px;
+  animation: hi 150s linear infinite;
+}
+
+@keyframes hi {
+  0% {
+    background-position:
+      0px 220px,
+      3px 220px,
+      151.5px 337.5px,
+      25px 24px,
+      28px 24px,
+      176.5px 150px,
+      50px 16px,
+      53px 16px,
+      201.5px 91px,
+      75px 224px,
+      78px 224px,
+      226.5px 350.5px,
+      100px 19px,
+      103px 19px,
+      251.5px 121px,
+      125px 120px,
+      128px 120px,
+      276.5px 187px,
+      150px 31px,
+      153px 31px,
+      301.5px 120.5px,
+      175px 235px,
+      178px 235px,
+      326.5px 384.5px,
+      200px 121px,
+      203px 121px,
+      351.5px 228.5px,
+      225px 224px,
+      228px 224px,
+      376.5px 364.5px,
+      250px 26px,
+      253px 26px,
+      401.5px 105px,
+      275px 75px,
+      278px 75px,
+      426.5px 180px;
+  }
+
+  to {
+    background-position:
+      0px 6800px,
+      3px 6800px,
+      151.5px 6917.5px,
+      25px 13632px,
+      28px 13632px,
+      176.5px 13758px,
+      50px 5416px,
+      53px 5416px,
+      201.5px 5491px,
+      75px 17175px,
+      78px 17175px,
+      226.5px 17301.5px,
+      100px 5119px,
+      103px 5119px,
+      251.5px 5221px,
+      125px 8428px,
+      128px 8428px,
+      276.5px 8495px,
+      150px 9876px,
+      153px 9876px,
+      301.5px 9965.5px,
+      175px 13391px,
+      178px 13391px,
+      326.5px 13540.5px,
+      200px 14741px,
+      203px 14741px,
+      351.5px 14848.5px,
+      225px 18770px,
+      228px 18770px,
+      376.5px 18910.5px,
+      250px 5082px,
+      253px 5082px,
+      401.5px 5161px,
+      275px 6375px,
+      278px 6375px,
+      426.5px 6480px;
+  }
+}
+
+/* Contenido de la tarjeta */
+.card-content {
+    position: relative;
+    z-index: 3; /* Asegura que el contenido esté por encima del fondo animado */
+    text-align: center;
+    color: rgb(255, 255, 255); /* Texto en blanco para contrastar con el fondo oscuro */
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Botón de donar */
+.donate-btn {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: linear-gradient(to bottom right, #00ff15, #00fa9a, #7cdd84);
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 0 20px rgba(36, 251, 72, 0.5);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.donate-btn-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 10;
+}
+
+.donate-btn-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.5s ease;
+}
+
+.donate-btn:hover .donate-btn-arrow {
+    transform: translateX(8px);
+}
+
+.donate-btn-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    opacity: 0.5;
+    background: linear-gradient(to top left, rgba(251, 191, 36, 0.2), transparent, transparent);
+    transition: opacity 0.3s ease;
+}
+
+.donate-btn:hover .donate-btn-overlay {
+    opacity: 0.8;
+}
+
+.donate-btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: transform 0.7s ease-out;
+}
+
+.donate-btn:hover .donate-btn-shine {
+    transform: translateX(200%);
+}
+
+/* Footer inferior */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #6CACE4;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    color: white;
+    font-size: 24px;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+}
+
+/* Slider de modo oscuro/claro */
+.theme-switcher {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1002;
+}
+
+.switch {
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+    width: 3em;
+    height: 1.6em;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    background-color: #6CACE4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    transition: 0.4s;
+    border-radius: 30px;
+    box-shadow: 0 0 0 rgba(33, 133, 214, 0);
+    transition: all 0.4s ease;
+}
+
+.slider:hover {
+    box-shadow: 0 0 10px rgba(18, 62, 99, 0.5);
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 1.2em;
+    width: 1.2em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 10%;
+    box-shadow: inset 8px -4px 0px 8px #fdf906;
+    background-color: #181c29;
+    transition: all 0.4s ease;
+    transform-origin: center;
+}
+
+.slider:hover::before {
+    transform: rotate(45deg);
+}
+
+.clouds_stars {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+    left: 70%;
+    bottom: 50%;
+    background-color: #fff;
+    transition: all 0.3s;
+    box-shadow:
+        -8px 0 0 0 white,
+        -4px 0 0 1px white,
+        0.2px 12px 0 white,
+        -4.5px 12px 0 white;
+    filter: blur(0.4px);
+}
+
+.switch input:checked ~ .clouds_stars {
+    transform: translateX(-15px);
+    height: 2px;
+    width: 2px;
+    border-radius: 50%;
+    left: 80%;
+    top: 15%;
+    background-color: #fff;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    box-shadow:
+        -5px 8px 0 #fff,
+        6px 12px 0 #fff,
+        -12px 1px 0 #fff,
+        -15px 8px 0 #fff,
+        -5px 18px 0 #fff,
+        -10px 20px 0 #fff;
+    filter: none;
+    animation: twinkle 2s infinite;
+}
+
+.switch input:checked + .slider {
+    background-color: #181c29 !important;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(100%);
+    box-shadow: inset 6px -4px 0 0 #fff;
+}
+
+.switch input:checked + .slider:hover::before {
+    transform: translateX(100%) rotate(-45deg);
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+/* Botón "Jugar" */
+.jugar-btn {
+    position: relative;
+    padding: 16px 40px;
+    border-radius: 8px;
+    background: linear-gradient(to bottom right, #facc15, #f59e0b, #fbbf24);
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+    transition: all 0.3s ease;
+    transform: rotate(0deg);
+    margin-top: 20px; /* Más abajo */
+}
+
+.jugar-btn:hover {
+    background: linear-gradient(to bottom right, #fbbf24, #f59e0b, #facc15);
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.7);
+    transform: rotate(1deg);
+}
+
+.jugar-btn:active {
+    transform: scale(0.9);
+}
+
+.jugar-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    border: 2px solid rgba(251, 191, 36, 0.5);
+    transition: all 0.3s ease;
+}
+
+.jugar-btn:hover::before {
+    border-color: rgba(251, 191, 36, 0.8);
+    transform: scale(1.05);
+}
+
+.jugar-btn-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 10;
+}
+
+.jugar-btn-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.jugar-btn-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.5s ease;
+}
+
+.jugar-btn:hover .jugar-btn-arrow {
+    transform: translateX(8px);
+}
+
+.jugar-btn-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    opacity: 0.5;
+    background: linear-gradient(to top left, rgba(251, 191, 36, 0.2), transparent, transparent);
+    transition: opacity 0.3s ease;
+}
+
+.jugar-btn:hover .jugar-btn-overlay {
+    opacity: 0.8;
+}
+
+.jugar-btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: transform 0.7s ease-out;
+}
+
+.jugar-btn:hover .jugar-btn-shine {
+    transform: translateX(200%);
+}
+/* Texto con dos colores */
+.multicolor-text {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(
+        to right,
+        #6cace4 0%, /* Celeste */
+        #6cace4 33.33%, /* Celeste */
+        #ffffff 33.33%, /* Blanco */
+        #ffffff 70.66%, /* Blanco */
+        #6cace4 66.66% /* Celeste */
+    );
+    -webkit-background-clip: text; /* Aplicar el fondo solo al texto */
+    background-clip: text;
+    color: transparent; /* Hacer el texto transparente para mostrar el fondo */
+}
+/* Sección del formulario */
+.form-section {
+    padding: 85px 60px;
+    background-color: #181c29;
+    text-align: left;
+    width: 100%; /* Ocupar todo el ancho */
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.form-title {
+    font-size: 2.5rem;
+    color: #6CACE4;
+    margin-bottom: 10px;
+}
+
+.form-description {
+    font-size: 1rem;
+    color: #ffffffb0;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto; /* Centrar el formulario */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #ffffffa2;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 16px; /* Ajustado para mayor comodidad */
+    border: 1px solid #4070f4; /* Similar al border original */
+    border-radius: 1.25rem; /* Ajustado al estilo redondeado */
+    font-size: 1rem;
+    color: #ffffffa2;
+    background-color: transparent;
+    outline: none;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+    transition: all 0.15s ease; /* Para transiciones suaves */
+}
+
+.form-group input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(64, 112, 244, 0.5);
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: 0;
+    left: 1rem;
+    font-size: 0.875rem;
+    color: #4070f4;
+}
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+.submit-btn {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+    font-family: 'Montserrat', sans-serif; /* Cambiar fuente aquí */
+    font-weight: 500; /* Asegura que la fuente tenga el peso Medium */
+  }
+  
+  .submit-btn:hover {
+    background-color: rgb(56, 90, 194);
+  }
+  /* Ocultar el icono por defecto */
+#checkIcon.hidden {
+    display: none;
+}
+
+#submitBtn:disabled {
+    background-color: #ccc; /* Desactivar el botón si hay errores */
+}
+
+#buttonText {
+    display: inline;
+}
+
+#checkIcon {
+    display: inline; /* Mostrar el icono */
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+
+/* Estilos para la barra de carga */
+#loading-bar {
+    position: fixed; /* Fija la barra en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    height: 4px; /* Grosor de la barra */
+    background-color: #6CACE4; /* Color celeste */
+    transform: scaleX(0); /* Comienza sin ancho */
+    transform-origin: left; /* La animación comienza desde la izquierda */
+    animation: loading 2s linear forwards; /* Animación de 2 segundos y se detiene al final */
+    z-index: 9999; /* Asegura que esté por encima de todo */
+}
+
+/* Animación de la barra de carga */
+@keyframes loading {
+    0% {
+        transform: scaleX(0); /* Comienza sin ancho */
+    }
+    100% {
+        transform: scaleX(1); /* Alcanza el 100% del ancho */
+    }
+}
+.Btn {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(#44ea76, #39fad7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.Btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.arrow path {
+    fill: white;
+}
+
+.text {
+    font-size: 0.7em;
+    width: 100px;
+    position: absolute;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: -18px;
+    opacity: 0;
+    transition-duration: 0.7s;
+}
+
+.Btn:hover .text {
+    opacity: 1;
+    transition-duration: 0.7s;
+}
+
+.Btn:hover .arrow {
+    animation: slide-in-bottom 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
