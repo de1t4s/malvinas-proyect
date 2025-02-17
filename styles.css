@@ -35,7 +35,6 @@ body {
 .background-gallery img.active {
     opacity: 1;
 }
-
 /* Controles de la galería */
 .gallery-controls {
     position: relative;
@@ -231,10 +230,10 @@ h1 {
 p {
     font-size: 1.2rem;
     opacity: 0;
-    animation: fadeInUp 1s ease 0.5s forwards;
+    animation: fadeInUp 1s ease 0.1s forwards;
 }
 
-/* Animaciones */
+/* Animaciones generales */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -246,10 +245,33 @@ p {
     }
 }
 
-.animate-up {
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
+/* Efecto Shine solo en el texto */
+@keyframes shine {
+    0% {
+        background-position: -200%;
+        color: transparent; /* Durante la animación, el texto es transparente para que el gradiente sea visible */
+    }
+    100% {
+        background-position: 200%;
+        color: #ffffff; /* Al final de la animación, volvemos al color original del texto */
+    }
 }
+
+.shine-text {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #ffffff; /* Color original del texto */
+    font-weight: bold;
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    background-size: 200%;
+    background-clip: text; /* Asegura que el gradiente se aplique solo al texto */
+    animation: shine 1.5s forwards, fadeInUp 1s ease forwards; /* Brillo solo una vez */
+}
+
+
+
+
 
 /* Estilos generales */
 body {
@@ -381,7 +403,7 @@ footer {
     radial-gradient(1.5px 1.5px at 150px 107.5px, var(--c) 100%, #0000 150%),
     radial-gradient(4px 100px at 0px 281px, var(--c), #0000),
     radial-gradient(4px 100px at 300px 281px, var(--c), #0000),
-    radial-gradient(1.5px 1.5px at 150px 140.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(1.5px 1.5px at 150px 140.1px, var(--c) 100%, #0000 150%),
     radial-gradient(4px 100px at 0px 158px, var(--c), #0000),
     radial-gradient(4px 100px at 300px 158px, var(--c), #0000),
     radial-gradient(1.5px 1.5px at 150px 79px, var(--c) 100%, #0000 150%),
@@ -442,7 +464,7 @@ footer {
       201.5px 91px,
       75px 224px,
       78px 224px,
-      226.5px 350.5px,
+      226.5px 350.1px,
       100px 19px,
       103px 19px,
       251.5px 121px,
@@ -451,7 +473,7 @@ footer {
       276.5px 187px,
       150px 31px,
       153px 31px,
-      301.5px 120.5px,
+      301.5px 120.1px,
       175px 235px,
       178px 235px,
       326.5px 384.5px,
@@ -494,13 +516,13 @@ footer {
       301.5px 9965.5px,
       175px 13391px,
       178px 13391px,
-      326.5px 13540.5px,
+      326.5px 13540.1px,
       200px 14741px,
       203px 14741px,
       351.5px 14848.5px,
       225px 18770px,
       228px 18770px,
-      376.5px 18910.5px,
+      376.5px 18910.1px,
       250px 5082px,
       253px 5082px,
       401.5px 5161px,
@@ -537,7 +559,7 @@ footer {
     cursor: pointer;
     overflow: hidden;
     border: none;
-    box-shadow: 0 0 20px rgba(36, 251, 72, 0.5);
+    box-shadow: 0 0 20px rgba(36, 251, 72, 0.1);
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
@@ -554,7 +576,7 @@ footer {
 .donate-btn-arrow {
     width: 16px;
     height: 16px;
-    transition: transform 0.5s ease;
+    transition: transform 0.1s ease;
 }
 
 .donate-btn:hover .donate-btn-arrow {
@@ -565,8 +587,8 @@ footer {
     position: absolute;
     inset: 0;
     border-radius: 8px;
-    opacity: 0.5;
-    background: linear-gradient(to top left, rgba(251, 191, 36, 0.2), transparent, transparent);
+    opacity: 0.1;
+    background: linear-gradient(to top left, rgba(251, 191, 36, 0.1), transparent, transparent);
     transition: opacity 0.3s ease;
 }
 
@@ -580,7 +602,7 @@ footer {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
     transition: transform 0.7s ease-out;
 }
 
@@ -655,7 +677,7 @@ footer {
 }
 
 .slider:hover {
-    box-shadow: 0 0 10px rgba(18, 62, 99, 0.5);
+    box-shadow: 0 0 10px rgba(18, 62, 99, 0.1);
 }
 
 .slider::before {
@@ -689,7 +711,7 @@ footer {
     box-shadow:
         -8px 0 0 0 white,
         -4px 0 0 1px white,
-        0.2px 12px 0 white,
+        0.1px 12px 0 white,
         -4.5px 12px 0 white;
     filter: blur(0.4px);
 }
@@ -733,7 +755,7 @@ footer {
         opacity: 1;
     }
     50% {
-        opacity: 0.5;
+        opacity: 0.1;
     }
 }
 /* Botón "Jugar" */
@@ -750,7 +772,7 @@ footer {
     cursor: pointer;
     overflow: hidden;
     border: none;
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
     transition: all 0.3s ease;
     transform: rotate(0deg);
     margin-top: 20px; /* Más abajo */
@@ -771,7 +793,7 @@ footer {
     position: absolute;
     inset: 0;
     border-radius: 8px;
-    border: 2px solid rgba(251, 191, 36, 0.5);
+    border: 2px solid rgba(251, 191, 36, 0.1);
     transition: all 0.3s ease;
 }
 
@@ -796,7 +818,7 @@ footer {
 .jugar-btn-arrow {
     width: 16px;
     height: 16px;
-    transition: transform 0.5s ease;
+    transition: transform 0.1s ease;
 }
 
 .jugar-btn:hover .jugar-btn-arrow {
@@ -807,8 +829,8 @@ footer {
     position: absolute;
     inset: 0;
     border-radius: 8px;
-    opacity: 0.5;
-    background: linear-gradient(to top left, rgba(251, 191, 36, 0.2), transparent, transparent);
+    opacity: 0.1;
+    background: linear-gradient(to top left, rgba(251, 191, 36, 0.1), transparent, transparent);
     transition: opacity 0.3s ease;
 }
 
@@ -822,7 +844,7 @@ footer {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
     transition: transform 0.7s ease-out;
 }
 
@@ -901,7 +923,7 @@ footer {
 }
 
 .form-group input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(64, 112, 244, 0.5);
+    box-shadow: 0 0 0 0.15rem rgba(64, 112, 244, 0.1);
 }
 
 .form-group input:focus + label,
@@ -978,7 +1000,7 @@ footer {
 .Btn {
     width: 45px;
     height: 45px;
-    background: linear-gradient(#44ea76, #39fad7);
+    background: linear-gradient(#449fea, #0755ff);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1022,7 +1044,7 @@ footer {
 }
 
 .Btn:hover .arrow {
-    animation: slide-in-bottom 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-in-bottom 0.7s cubic-bezier(0.150, 0.460, 0.450, 0.940) both;
 }
 
 @keyframes slide-in-bottom {
@@ -1076,10 +1098,14 @@ footer {
     justify-content: center;
     position: relative;
     padding: var(--border);
-    border: 4px solid #6CACE4;
-    background-color: #191c29;
+    border: 4px solid #6CACE4; /* Borde azul redondeado */
     overflow: hidden;
+    background-image: url('images/card.jpg'); /* Imagen externa */
+    background-size: cover; /* Ajusta la imagen para cubrir toda la tarjeta */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
+
 
 .whitelist-card::before,
 .whitelist-card::after {
@@ -1111,9 +1137,9 @@ footer {
     transition-property: color, background-color, border-color,
         text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
         backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.5s;
-    animation-delay: 0.5s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.1, 1);
+    transition-duration: 0.1s;
+    animation-delay: 0.1s;
     filter: blur(24px);
     opacity: 0.7;
 }
@@ -1166,14 +1192,14 @@ footer {
     left: 10%;
     opacity: 1;
     animation-duration: 2.35s;
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
 }
 
 .points_wrapper .point:nth-child(2) {
     left: 30%;
     opacity: 0.7;
     animation-duration: 2.5s;
-    animation-delay: 0.5s;
+    animation-delay: 0.1s;
 }
 
 .points_wrapper .point:nth-child(3) {
@@ -1197,7 +1223,7 @@ footer {
 
 .points_wrapper .point:nth-child(6) {
     left: 75%;
-    opacity: 0.5;
+    opacity: 0.1;
     animation-duration: 1.5s;
     animation-delay: 1.5s;
 }
@@ -1206,14 +1232,14 @@ footer {
     left: 88%;
     opacity: 0.9;
     animation-duration: 2.2s;
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
 }
 
 .points_wrapper .point:nth-child(8) {
     left: 58%;
     opacity: 0.8;
     animation-duration: 2.25s;
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
 }
 
 .points_wrapper .point:nth-child(9) {
@@ -1227,7 +1253,7 @@ footer {
     left: 65%;
     opacity: 1;
     animation-duration: 2.5s;
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
 }
 
 .content {
@@ -1280,4 +1306,435 @@ footer {
 .close-btn:hover {
     background-color: #6CACE4;
     color: #191c29;
+}
+/* Estilos para la sección de información adicional */
+.info-section {
+    background-color: #181c29; /* Fondo azul oscuro como el footer */
+    padding: 120px 60px;
+    text-align: left;
+    color: white;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    gap: 40px;
+}
+
+.info-text {
+    flex: 1;
+    max-width: 60%;
+}
+
+.info-text h2 {
+    font-size: 2rem;
+    color: #6CACE4; /* Color celeste para los títulos */
+    margin-bottom: 15px;
+}
+
+.info-text p {
+    font-size: 1rem;
+    color: #ffffffb0; /* Texto semi-transparente */
+    margin-bottom: 20px;
+}
+
+.info-card {
+    flex: 1;
+    max-width: 40%;
+}
+
+.info-card img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* Transición suave para la imagen */
+}
+.info-card:hover {
+    transform: scale(1.05); /* Agranda la card un 5% */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+}
+
+.info-card:hover img {
+    transform: scale(1.1); /* Agranda la imagen un 10% */
+}
+
+/* Estilos para el ícono dentro del botón "Saber más" */
+.saber-mas-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el ícono y el texto */
+    position: relative;
+    padding: 12px 30px;
+    border-radius: 8px;
+    background: linear-gradient(to bottom right, #00ff15, #00fa9a, #7cdd84);
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 0 20px rgba(36, 251, 72, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.saber-mas-btn:hover {
+    background: linear-gradient(to bottom right, #00fa9a, #00ff15, #7cdd84);
+    box-shadow: 0 0 30px rgba(36, 251, 72, 0.7);
+    transform: rotate(1deg);
+}
+
+.saber-mas-btn:active {
+    transform: scale(0.9);
+}
+
+/* Estilos para el ícono */
+.saber-mas-icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2; /* Grosor del trazo del ícono */
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+  .btn-conteiner {
+    display: flex;
+    justify-content: center;
+    --color-text: #9ee5fa;
+    --color-background: #353535;
+    --color-outline: #9ee5fa80;
+    --color-shadow: #00000080;
+  }
+
+  .scroll-button {
+    background-color: #2d2d2d; /* Color de fondo gris oscuro */
+    padding: 12px 16px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    color: white; /* Color del texto (blanco) */
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: bounce 1s infinite; /* Animación de rebote */
+  }
+
+  .scroll-button:hover {
+    animation: none; /* Quita la animación de rebote al pasar el cursor */
+  }
+
+  .scroll-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Animación de rebote */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* SVG (flecha hacia abajo) */
+  .scroll-icon path {
+    stroke: #9ee5fa; /* Color de la flecha */
+  }
+
+  .scroll-button:focus {
+    outline: none; /* Quitar el contorno de enfoque */
+  }
+
+  /* Estilo del contenido que está abajo */
+  #down {
+    margin-top: 100vh; /* Empuja el contenido hacia abajo */
+    padding: 20px;
+    text-align: center;
+  }
+  /* Estilos para la sección de Discord */
+.discord-section {
+    background-color: #181c29; /* Fondo azul oscuro */
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+.discord-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.discord-title {
+    font-size: 3rem;
+    color: #6CACE4; /* Color celeste */
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.discord-description {
+    font-size: 1.2rem;
+    color: #ffffffb0; /* Texto semi-transparente */
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease 0.2s forwards;
+}
+
+/* Estilos para el botón de Discord */
+.discord-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el texto y la flecha */
+    font-size: 1.1rem;
+    color: #6CACE4; /* Color celeste */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    animation: fadeInUp 1s ease 0.4s forwards;
+}
+
+.discord-btn-text {
+    position: relative;
+}
+
+.discord-btn-text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #6CACE4; /* Subrayado celeste */
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.discord-btn:hover .discord-btn-text::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.discord-btn-arrow {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.3s ease;
+}
+
+.discord-btn:hover .discord-btn-arrow {
+    transform: translateX(5px); /* Mueve la flecha a la derecha */
+}
+
+/* Animación de fadeInUp */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Estilos para la sección de ventajas del Discord */
+.discord-ventajas {
+    background-color: #181c29; /* Fondo azul oscuro */
+    padding: 80px 20px;
+    color: white;
+}
+
+.ventajas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Espacio entre el texto y la imagen */
+}
+
+.ventajas-texto {
+    flex: 1;
+    text-align: left;
+}
+
+.ventajas-titulo {
+    font-size: 2.5rem;
+    color: #6CACE4; /* Color celeste */
+    margin-bottom: 20px;
+}
+
+.ventajas-descripcion {
+    font-size: 1.2rem;
+    color: #ffffffb0; /* Texto semi-transparente */
+    margin-bottom: 20px;
+}
+
+.ventajas-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ventajas-lista li {
+    font-size: 1rem;
+    color: #ffffffb0; /* Texto semi-transparente */
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px; /* Espacio para el ícono */
+}
+
+.ventajas-lista li::before {
+    content: "•";
+    color: #6CACE4; /* Color celeste para el punto */
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+.ventajas-imagen {
+    flex: 1;
+    text-align: right;
+}
+
+.ventajas-imagen img {
+    max-width: 100%;
+    height: auto;
+}
+/* Estilos para la barra divisora */
+.barra-divisora {
+    width: 100%;
+    height: 2px; /* Altura de la barra */
+    background-color: #181c29; /* Color superpuesto para cubrir la imagen de fondo */
+    position: relative;
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+/* Barra con gradiente animado */
+.barra-azul {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #4a90e2, #6CACE4, #4a90e2); /* Gradiente inicial */
+    background-size: 300% 100%; /* Aumenta el tamaño del gradiente */
+    position: absolute;
+    animation: cambiar-gradiente 4s infinite ease-in-out alternate; /* Animación */
+}
+
+/* Animación del gradiente */
+@keyframes cambiar-gradiente {
+    0% {
+        background-position: 0% 50%;
+        background: linear-gradient(90deg, #1E3A8A, #3B82F6, #60A5FA); /* Azul oscuro a celeste */
+    }
+    50% {
+        background-position: 50% 50%;
+        background: linear-gradient(90deg, #3B82F6, #60A5FA, #93C5FD); /* Celeste a azul claro */
+    }
+    100% {
+        background-position: 100% 50%;
+        background: linear-gradient(90deg, #60A5FA, #93C5FD, #BFDBFE); /* Azul claro a blanco azulado */
+    }
+}
+/* Estilos para la sección de Normas Generales */
+.normas-generales {
+    background-color: #181c29; /* Fondo azul oscuro */
+    padding: 80px 20px;
+    color: white;
+}
+
+.normas-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.normas-titulo {
+    font-size: 2.5rem;
+    color: #6CACE4; /* Color celeste */
+    margin-bottom: 20px;
+}
+
+.normas-intro {
+    font-size: 1.1rem;
+    color: #ffffffb0; /* Texto semi-transparente */
+    margin-bottom: 40px;
+}
+
+.normas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espacio entre cada norma */
+}
+
+.norma-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px; /* Espacio entre el número y el contenido */
+}
+
+.norma-numero {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6CACE4; /* Color celeste */
+}
+
+.norma-contenido {
+    flex: 1;
+}
+
+.norma-titulo {
+    font-size: 1.3rem;
+    color: #6CACE4; /* Color celeste */
+    margin-bottom: 10px;
+}
+
+.norma-descripcion {
+    font-size: 1rem;
+    color: #ffffffb0; /* Texto semi-transparente */
+    line-height: 1.6;
+}
+/* Estilos para la lista de preguntas frecuentes (FAQ) */
+.faq-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #1f2433; /* Fondo oscuro para cada pregunta */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.faq-pregunta {
+    font-size: 1.3rem;
+    color: #6CACE4; /* Color celeste para las preguntas */
+    margin-bottom: 10px;
+}
+
+.faq-respuesta {
+    font-size: 1rem;
+    color: #ffffffb0; /* Texto semi-transparente para las respuestas */
+    line-height: 1.6;
+}
+
+.faq-respuesta a {
+    color: #6CACE4; /* Color celeste para los enlaces */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.faq-respuesta a:hover {
+    color: #4e8fd1; /* Color celeste más claro al hacer hover */
 }
