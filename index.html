@@ -13,10 +13,10 @@
         <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
             <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path>
         </svg>
-        <p class="text">Volver arriba</p>
     </button>
         <!-- Barra de carga -->
         <div id="loading-bar"></div>
+        <div class="container"></div> <!-- Contenedor de lluvia -->
     <!-- Barra de navegación -->
     <nav>
         <a href="/" class="logo-container">
@@ -27,6 +27,7 @@
             <li class="dropdown">
                 <a href="#">Servicios</a>
                 <ul class="dropdown-menu">
+                    <!-- Opciones del menú desplegable -->
                     <li><a href="#">Negocios</a></li>
                     <li><a href="#">Facciones</a></li>
                     <li><a href="#">Autos</a></li>
@@ -37,19 +38,23 @@
             <li class="dropdown">
                 <a href="#">Información</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Preguntas Frecuentes (FAQ)</a></li>
-                    <li><a href="#">Normas Generales</a></li>
-                    <li><a href="#">Normas de Faccion</a></li>
-                    <li><a href="#">Normas delictivas</a></li>
-                    <li><a href="#">Ser Staff</a></li>
+                    <li><a href="informacion.html">Preguntas Frecuentes (FAQ)</a></li>
+                    <li><a href="informacion.html">Normas Generales</a></li>
+                    <li><a href="informacion.html">Normas de Faccion</a></li>
+                    <li><a href="informacion.html">Normas delictivas</a></li>
+                    <li><a href="informacion.html">Ser Staff</a></li>
                 </ul>
             </li>
             <li><a href="#">Contacto</a></li>
         </ul>
     </nav>
+    <div class="barra-divisora">
+        <div class="barra-azul"></div>
+    </div>
     <!-- Contenido principal -->
     <main>
-        <h1 class="animate-up">¡Bienvenido a</h1><h1 class="multicolor-text">Malvinas!</h1>
+        <h1 class="animate-up shine-text">¡Bienvenido a</h1>
+        <h1 class="multicolor-text">Malvinas!</h1>
         <p class="animate-up">Diseñado para fomentar el rol serio en Latam</p>
         <!-- Botón "Jugar" -->
         <a href="#form-section" class="jugar-btn animate-up" style="animation-delay: 0.7s;">
@@ -86,10 +91,111 @@
         <img src="images/cayoperico.png" alt="Fondo 2">
         <img src="images/comisaria.png" alt="Fondo 3">
     </div>
+<div class="barra-divisora">
+    <div class="barra-azul"></div>
+</div>
+<!-- Sección de información adicional -->
+<section class="info-section">
+    <div class="info-container">
+        <!-- Sección de Whitelist -->
+        <div class="info-text">
+            <h2>WHITELIST</h2>
+            <p>Contamos con un sencillo formulario para garantizar una experiencia de rol serio y calidad. Completalo para ser aceptado en nuestra comunidad.</p>
+            <button class="saber-mas-btn">
+                <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" class="saber-mas-icon">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Saber más
+            </button>
+        </div>
+        <div class="info-card">
+            <img src="images/whitelist-card.png" alt="Whitelist Card">
+        </div>
+    </div>
+
+    <div class="info-container">
+        <!-- Sección de Negocios -->
+        <div class="info-text">
+            <h2>NEGOCIOS</h2>
+            <p>Adquerí negocios exclusivos dentro del servidor y formá parte de la economia de Malvinas. ¡Construi tu imperio y hacete con la ciudad!</p>
+            <button class="saber-mas-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="saber-mas-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M64 0C46.3 0 32 14.3 32 32l0 64c0 17.7 14.3 32 32 32l80 0 0 32-57 0c-31.6 0-58.5 23.1-63.3 54.4L1.1 364.1C.4 368.8 0 373.6 0 378.4L0 448c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-69.6c0-4.8-.4-9.6-1.1-14.4L488.2 214.4C483.5 183.1 456.6 160 425 160l-217 0 0-32 80 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32L64 0zM96 48l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L96 80c-8.8 0-16-7.2-16-16s7.2-16 16-16zM64 432c0-8.8 7.2-16 16-16l352 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16zm48-168a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm120-24a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM160 344a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM328 240a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM256 344a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM424 240a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM352 344a24 24 0 1 1 0-48 24 24 0 1 1 0 48z"/></svg>
+                </svg>
+                Saber más
+            </button>
+        </div>
+        <div class="info-card">
+            <img src="images/negocios-card.png" alt="Negocios Card">
+        </div>
+    </div>
+
+    <div class="info-container">
+        <!-- Sección de Rol Serio -->
+        <div class="info-text">
+            <h2>ROL SERIO</h2>
+            <p>En Malvinas, el enfoque es el rol serio. El PvP es lo de menos. ¡Formá parte de roles increiblemente realistas!</p>
+            <button class="saber-mas-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="saber-mas-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M192 0c17.7 0 32 14.3 32 32l0 112-64 0 0-112c0-17.7 14.3-32 32-32zM64 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 80-64 0 0-80zm192 0c0-17.7 14.3-32 32-32s32 14.3 32 32l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-96zm96 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64zm-96 88l0-.6c9.4 5.4 20.3 8.6 32 8.6c13.2 0 25.4-4 35.6-10.8c8.7 24.9 32.5 42.8 60.4 42.8c11.7 0 22.6-3.1 32-8.6l0 8.6c0 52.3-25.1 98.8-64 128l0 96c0 17.7-14.3 32-32 32l-160 0c-17.7 0-32-14.3-32-32l0-78.4c-17.3-7.9-33.2-18.8-46.9-32.5L69.5 357.5C45.5 333.5 32 300.9 32 267l0-27c0-35.3 28.7-64 64-64l88 0c22.1 0 40 17.9 40 40s-17.9 40-40 40l-56 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l56 0c39.8 0 72-32.2 72-72z"/></svg>
+                Saber más
+            </button>
+        </div>
+        <div class="info-card">
+            <img src="images/rol-card.jpg" alt="Rol Serio Card">
+        </div>
+    </div>
+</section>
+<!-- Sección de Discord -->
+<section class="discord-section">
+    <div class="discord-content">
+        <h2 class="discord-title animate-up">Unite a nuestra comunidad</h2>
+        <p class="discord-description animate-up" style="animation-delay: 0.2s;">
+            Unite a nuestro Discord para ser el primero en enterarte de las novedades, recibir soporte las 24 horas y formar parte de una comunidad activa y amigable.
+        </p>
+        <a href="#" class="discord-btn animate-up" style="animation-delay: 0.4s;">
+            <span class="discord-btn-text">Unirte a la comunidad</span>
+            <svg class="discord-btn-arrow" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+                <path d="M5 12h14m-7-7l7 7-7 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+        </a>
+    </div>
+</section>
+<!-- Barra divisora animada -->
+<div class="barra-divisora">
+    <div class="barra-azul"></div>
+</div>
+<!-- Sección de ventajas del Discord -->
+<section class="discord-ventajas">
+    <div class="ventajas-container">
+        <!-- Texto a la izquierda -->
+        <div class="ventajas-texto">
+            <h2 class="ventajas-titulo">¿Por qué unirte a nuestro Discord?</h2>
+            <p class="ventajas-descripcion">
+                En nuestro Discord, vas a encontrar una comunidad activa y amigable donde podrás:
+            </p>
+            <ul class="ventajas-lista">
+                <li>Ser el primero en enterarte de las novedades del servidor.</li>
+                <li>Recibir soporte las 24 horas de parte de nuestro staff.</li>
+                <li>Participar en eventos exclusivos y actividades comunitarias.</li>
+                <li>Conectar con otros jugadores y formar equipos</li>
+            </ul>
+        </div>
+        <!-- Imagen a la derecha -->
+        <div class="ventajas-imagen">
+            <img src="images/celular.png" alt="Celular con Discord">
+        </div>
+    </div>
+<div class="barra-divisora">
+    <div class="barra-azul"></div>
+</div>
+</section>
     <!-- Sección del formulario -->
     <section class="form-section">
         <h2 class="form-title">¿Querés entrar?</h2>
-        <p class="form-description">Para entrar deberás completar este sencillo formulario.</p>
+        <p class="form-description">Para entrar tenes que completar este sencillo formulario.</p>
         <form class="form-container">
             <!-- Nombre de Discord -->
             <div class="form-group">
@@ -149,6 +255,7 @@
                     <li><a href="#">Ayuda</a></li>
                     <li><a href="#">Reporte a usuario</a></li>
                     <li><a href="#">Reporte a staff</a></li>
+                    <li><a href="informacion.html">Preguntas Frecuentes</a></li>
                 </ul>
             </div>
     
@@ -221,14 +328,7 @@
                 <p>Realiza la whitelist para acceder a una experiencia única en Malvinas.</p>
                 <a href="#form-section" class="jugar-btn animate-up">
                     <span class="jugar-btn-content">
-                        <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" class="jugar-btn-icon">
-                            <path
-                                stroke-linecap="round"
-                                stroke-width="2"
-                                d="M5 13l4 4L19 7"
-                            ></path>
-                        </svg>
-                        Whitelist
+                        ¡Quiero!
                         <svg
                             viewBox="0 0 24 24"
                             stroke="currentColor"
